@@ -3,7 +3,6 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
-import 'package:form_tambah_produk_fourgeen/components/list.dart';
 
 Icon iconc = new Icon(Icons.chat_bubble_outline_rounded);
 Icon icont = new Icon(Icons.shopping_cart_outlined);
@@ -16,6 +15,19 @@ class FormTambahProduk extends StatefulWidget {
 class _FormTambahProdukState extends State<FormTambahProduk> {
   File file;
   bool _value = false;
+
+  final TextEditingController _txtNamaPController = TextEditingController();
+  final TextEditingController _txtDeskripsiController = TextEditingController();
+  final TextEditingController _txtKategoriController = TextEditingController();
+  final TextEditingController _txtHargaController = TextEditingController();
+  final TextEditingController _txtStokController = TextEditingController();
+  final TextEditingController _txtVariasiController = TextEditingController();
+  final TextEditingController _txtDeskripsi2Controller =
+      TextEditingController();
+  final TextEditingController _txtKualitasController = TextEditingController();
+  final TextEditingController _txtBeratController = TextEditingController();
+  final TextEditingController _txtPengirimanController =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +126,7 @@ class _FormTambahProdukState extends State<FormTambahProduk> {
                     height: size.height * 0.06,
                     color: Colors.white,
                     child: TextField(
-                      // controller: _isiberitaTextEditingController,
+                      controller: _txtNamaPController,
                       decoration: InputDecoration(
                         hintText: 'NAMA PRODUK',
                         border: InputBorder.none,
@@ -143,7 +155,7 @@ class _FormTambahProdukState extends State<FormTambahProduk> {
                       width: size.width - 60.0,
                       color: Colors.white,
                       child: TextField(
-                        // controller: _isiberitaTextEditingController,
+                        controller: _txtDeskripsiController,
                         decoration: InputDecoration(
                           hintText: 'DESKRIPSI PRODUK',
                           border: InputBorder.none,
@@ -166,38 +178,166 @@ class _FormTambahProdukState extends State<FormTambahProduk> {
                 elevation: 5,
                 child: Column(
                   children: <Widget>[
-                    InkWell(
-                      onTap: () {},
-                      child: ListForm(
-                        ilabel: Icons.list,
-                        label: "KATEGORI",
-                        lbutton: "Atur Kategori",
-                        ibutton: Icons.arrow_right,
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 5),
+                      height: size.height * 0.06,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            alignment: Alignment.center,
+                            color: Colors.white,
+                            child: Row(
+                              children: <Widget>[
+                                Icon(Icons.list),
+                                Container(
+                                  padding: EdgeInsets.only(left: 5.0),
+                                  width: size.width * 0.4,
+                                  child: TextField(
+                                    controller: _txtKategoriController,
+                                    decoration: InputDecoration(
+                                      hintText: "KATEGORI",
+                                      border: InputBorder.none,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            margin: EdgeInsets.only(left: 5),
+                            color: Colors.white,
+                            child: Row(
+                              children: [
+                                Text("Atur Kategori"),
+                                Icon(
+                                  Icons.arrow_right,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    InkWell(
-                      onTap: () {},
-                      child: ListForm(
-                        ilabel: Icons.label,
-                        label: "HARGA",
-                        lbutton: "Atur Harga",
+                    Container(
+                      height: size.height * 0.06,
+                      padding: EdgeInsets.symmetric(horizontal: 5),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            alignment: Alignment.center,
+                            color: Colors.white,
+                            child: Row(
+                              children: <Widget>[
+                                Icon(Icons.label),
+                                Container(
+                                  padding: EdgeInsets.only(left: 5.0),
+                                  width: size.width * 0.4,
+                                  child: TextField(
+                                    controller: _txtHargaController,
+                                    decoration: InputDecoration(
+                                      hintText: "HARGA",
+                                      border: InputBorder.none,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            margin: EdgeInsets.only(left: 5),
+                            color: Colors.white,
+                            child: Row(
+                              children: [
+                                Text("Atur Harga"),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    InkWell(
-                      onTap: () {},
-                      child: ListForm(
-                        ilabel: Icons.filter_3,
-                        label: "STOK",
-                        lbutton: "Atur Stok",
+                    Container(
+                      height: size.height * 0.06,
+                      padding: EdgeInsets.symmetric(horizontal: 5),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            alignment: Alignment.center,
+                            color: Colors.white,
+                            child: Row(
+                              children: <Widget>[
+                                Icon(Icons.filter_3),
+                                Container(
+                                  padding: EdgeInsets.only(left: 5.0),
+                                  width: size.width * 0.4,
+                                  child: TextField(
+                                    controller: _txtStokController,
+                                    decoration: InputDecoration(
+                                      hintText: "STOK",
+                                      border: InputBorder.none,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            margin: EdgeInsets.only(left: 5),
+                            color: Colors.white,
+                            child: Row(
+                              children: [
+                                Text("Atur Stok"),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    InkWell(
-                      onTap: () {},
-                      child: ListForm(
-                        ilabel: Icons.brush,
-                        label: "VARIASI",
-                        lbutton: "Atur Tipe, Warna",
-                        ibutton: Icons.arrow_right,
+                    Container(
+                      height: size.height * 0.06,
+                      padding: EdgeInsets.symmetric(horizontal: 5),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            alignment: Alignment.center,
+                            color: Colors.white,
+                            child: Row(
+                              children: <Widget>[
+                                Icon(Icons.brush),
+                                Container(
+                                  padding: EdgeInsets.only(left: 5.0),
+                                  width: size.width * 0.4,
+                                  child: TextField(
+                                    controller: _txtVariasiController,
+                                    decoration: InputDecoration(
+                                      hintText: "VARIASI",
+                                      border: InputBorder.none,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            margin: EdgeInsets.only(left: 5),
+                            color: Colors.white,
+                            child: Row(
+                              children: [
+                                Text("Atur Tipe, Warna"),
+                                Icon(
+                                  Icons.arrow_right,
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -209,24 +349,26 @@ class _FormTambahProdukState extends State<FormTambahProduk> {
               child: Container(
                 height: size.height * 0.16,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Container(
-                      // padding: EdgeInsets.only(left: 5.0),
-                      width: size.width - 60.0,
+                      margin: EdgeInsets.all(10),
+                      child: Icon(Icons.description),
+                    ),
+                    Container(
+                      width: size.width - 120.0,
                       color: Colors.white,
                       child: TextField(
                         maxLines: 10,
-                        // controller: _isiberitaTextEditingController,
+                        controller: _txtDeskripsi2Controller,
                         decoration: InputDecoration(
                           hintText: 'DESKRIPSI PRODUK',
-                          icon: Icon(Icons.description),
                           border: InputBorder.none,
                         ),
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(left: 5),
+                      margin: EdgeInsets.all(15),
                       color: Colors.white,
                       child: Text('0/500'),
                     ),
@@ -236,37 +378,136 @@ class _FormTambahProdukState extends State<FormTambahProduk> {
             ),
             Card(
               elevation: 5,
-              child: InkWell(
-                onTap: () {},
-                child: ListForm(
-                  ilabel: Icons.high_quality,
-                  label: "KUALITAS",
-                  lbutton: "Atur Kualitas",
-                  ibutton: Icons.arrow_right,
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 5),
+                height: size.height * 0.06,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      alignment: Alignment.center,
+                      color: Colors.white,
+                      child: Row(
+                        children: <Widget>[
+                          Icon(Icons.high_quality),
+                          Container(
+                            padding: EdgeInsets.only(left: 5.0),
+                            width: size.width * 0.4,
+                            child: TextField(
+                              controller: _txtKualitasController,
+                              decoration: InputDecoration(
+                                hintText: "KUALITAS",
+                                border: InputBorder.none,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      margin: EdgeInsets.only(left: 5),
+                      color: Colors.white,
+                      child: Row(
+                        children: [
+                          Text("Atur Kualitas"),
+                          Icon(
+                            Icons.arrow_right,
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
             Card(
               elevation: 5,
-              child: InkWell(
-                onTap: () {},
-                child: ListForm(
-                  ilabel: Icons.cases,
-                  label: "BERAT",
-                  lbutton: "Atur Berat",
-                  ibutton: Icons.arrow_right,
+              child: Container(
+                height: size.height * 0.06,
+                padding: EdgeInsets.symmetric(horizontal: 5),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      alignment: Alignment.center,
+                      color: Colors.white,
+                      child: Row(
+                        children: <Widget>[
+                          Icon(Icons.work),
+                          Container(
+                            padding: EdgeInsets.only(left: 5.0),
+                            width: size.width * 0.4,
+                            child: TextField(
+                              controller: _txtBeratController,
+                              decoration: InputDecoration(
+                                hintText: "BERAT",
+                                border: InputBorder.none,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      margin: EdgeInsets.only(left: 5),
+                      color: Colors.white,
+                      child: Row(
+                        children: [
+                          Text("Atur Berat"),
+                          Icon(
+                            Icons.arrow_right,
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
             Card(
               elevation: 5,
-              child: InkWell(
-                onTap: () {},
-                child: ListForm(
-                  ilabel: Icons.airplanemode_active,
-                  label: "Pengiriman",
-                  lbutton: "Atur Jasa Pengiriman",
-                  ibutton: Icons.arrow_right,
+              child: Container(
+                height: size.height * 0.06,
+                padding: EdgeInsets.symmetric(horizontal: 5),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      alignment: Alignment.center,
+                      color: Colors.white,
+                      child: Row(
+                        children: <Widget>[
+                          Icon(Icons.airplanemode_active),
+                          Container(
+                            padding: EdgeInsets.only(left: 5.0),
+                            width: size.width * 0.4,
+                            child: TextField(
+                              controller: _txtPengirimanController,
+                              decoration: InputDecoration(
+                                hintText: "PENGIRIMAN",
+                                border: InputBorder.none,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      margin: EdgeInsets.only(left: 5),
+                      color: Colors.white,
+                      child: Row(
+                        children: [
+                          Text("Atur Jasa Pengiriman"),
+                          Icon(
+                            Icons.arrow_right,
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
